@@ -1,0 +1,36 @@
+INC = /home/aishwaryapalled/banking/inc
+SRC = /home/aishwaryapalled/banking/src
+OBJ = /home/aishwaryapalled/banking/obj
+
+CFLAGS = -c -g -Wall
+LFLAGS = -o
+GCC = gcc
+CVFLAGS = -Wall -c -g
+IFLAGS = -I $(INC)
+
+all : $(BIN)/banking 
+
+$(OBJ)/client.o : $(SRC)/main.c
+	$(GCC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o/home/aishwaryapalled/banking/obj
+
+$(OBJ)/mainmenu.o : $(SRC)/customer.c
+	$(GCC) $(CFLAGS) $(SRC)/main.c $(IFLAGS)
+	mv *.o/home/aishwaryapalled/banking/obj
+
+$(OBJ)/admin.o : $(SRC)/admin.c
+	$(GCC) $(CFLAGS) $(SRC)/admin.c $(IFLAGS)
+	mv *.o/home/aishwaryapalled/banking/obj
+
+$(OBJ)/coodinator.o : $(SRC)/validations.c
+	$(GCC) $(CFLAGS) $(SRC)/buyer.c ($IFLAGS)
+	mv *.o/home/aishwaryapalled/banking/obj
+
+
+
+
+$(BIN)/client : $(OBJ)/main.o $(OBJ)/admin.o $(OBJ)/customer.o $(OBJ)/validations.o
+	$(GCC) $(OBJ)/main.o $(OBJ)/admin.o $(OBJ)/customer.o $(OBJ)/validations.o $(LFLAGS) $(BIN)/banking
+
+clean:
+	rm -f $(OBJ)/*.o $(BIN)/banking
